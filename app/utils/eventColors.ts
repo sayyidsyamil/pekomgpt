@@ -1,4 +1,11 @@
-export function getDepartmentColor(department: string) {
+export function getDepartmentColor(department?: string) {
+  if (!department) {
+    return {
+      bg: 'bg-gradient-to-r from-gray-800/20 to-gray-700/20 dark:from-gray-700/30 dark:to-gray-600/30',
+      text: 'text-gray-700 dark:text-gray-300',
+      border: 'border-l-gray-600 dark:border-l-gray-400',
+    };
+  }
   const normalized = department === 'Collaboration' ? 'A&W' : department;
   const colors: { [key: string]: { bg: string; text: string; border: string } } = {
     'Event Prep': {
